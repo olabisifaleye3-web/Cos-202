@@ -1,0 +1,46 @@
+def grade_point(score):
+    if score >= 70:
+        return "A", 5
+    elif score >= 60:
+        return "B", 4
+    elif score >= 50:
+        return "C", 3
+    elif score >= 45:
+        return "D", 2
+    elif score >= 40:
+        return "E", 1
+    else:
+        return "F", 0
+
+print("===== PERSONAL POCKET CGPA CALCULATOR =====")
+
+num_courses = int(input("Enter the number of courses: "))
+
+total_units = 0
+total_quality_points = 0
+
+for i in range(num_courses):
+    print("\nCourse", i + 1)
+
+    course = input("Course Code: ")
+    unit = int(input("Course Unit: "))
+    score = float(input("Score: "))
+
+    grade, point = grade_point(score)
+
+    quality_point = unit * point
+
+    total_units += unit
+    total_quality_points += quality_point
+
+    print("Grade:", grade)
+    print("Grade Point:", point)
+    print("Quality Point:", quality_point)
+
+cgpa = total_quality_points / total_units
+
+print("\n========== RESULT ==========")
+print("Total Credit Units:", total_units)
+print("Total Quality Points:", total_quality_points)
+print("CGPA:", round(cgpa, 2))
+print("============================")
